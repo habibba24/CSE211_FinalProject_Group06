@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="EventsX - Browse all upcoming events, concerts, and shows">
+    <meta name="keywords" content="events, concerts, shows, sports, tickets, booking">
+    <meta name="author" content="EventsX Team">
+    <title>Ticket Calculator - EventPro</title>
+    
+    <link rel="stylesheet" href="css/Budget_calculator.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/events.css">
+    
+    <script src="scripts/main.js" defer></script>
+</head>
+
+<body>
+    
+    <header>
+        <nav>
+            <h1>Event Budget Calculator</h1>
+        </nav>
+    </header>
+    
+    <nav>
+    
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../pages/About.html">About Us</a></li>
+            <li><a href="../pages/Contact.html">Contact Us</a></li>
+            <li><a href="../pages/Registration.html">Registration</a></li>
+            <li><a href="../pages/Event.html">Events</a></li>
+            <li><a href="../pages/Planning.html">Plan Event</a></li>
+            <li><a href="../pages/Budget_Calculator.html">Budget Calculator</a></li>
+        </ul>
+    </nav>
+
+
+    <main>
+        <article>
+            <header>
+                <h2>Budget Price Calculator</h2>
+                <p>Calculate your ticket costs with Egyptian Pounds pricing</p>
+            </header>
+
+            <section>
+                <h3>Ticket Configuration</h3>
+                <form id="EventBudgetCalculator">
+                    <fieldset>
+                        <legend>Event Details</legend>
+                        
+                        <label for="eventType">
+                            Event Type:
+                            <select id="eventType" name="eventType">
+                                <option value="" selected disabled>-- Select Event Type --</option>
+                                <option value="concert">Concert</option>
+                                <option value="conference">Conference</option>
+                                <option value="workshop">Workshop</option>
+                                <option value="festival">Festival</option>
+                                <option value="sports">Sports Event</option>
+                            </select>
+                        </label>
+                        
+                        <label for="eventDate">
+                            Event Date:
+                            <input type="date" id="eventDate" name="eventDate">
+                        </label>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Ticket Selection</legend>
+                        
+                        <label for="ticketType">
+                            Ticket Category:
+                            <select id="ticketType" name="ticketType">
+                                <option value="" selected disabled>-- Select Ticket Category --</option>
+                                <option value="500">Standard - EGP 500</option>
+                                <option value="1200">VIP - EGP 1,200</option>
+                                <option value="800">Gold - EGP 800</option>
+                                <option value="400">Early Bird - EGP 400</option>
+                                <option value="200">Student - EGP 200</option>
+                            </select>
+                        </label>
+                        
+                        <label for="quantity">
+                            Number of Tickets:
+                            <input type="number" id="quantity" name="quantity" min="1" max="10" value="1">
+                        </label>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Additional Services</legend>
+                        
+                      <label>
+                    <input type="checkbox" name="photoPrint" value="40">
+                      Printed Photo (+EGP 40)
+                    </label>
+
+                        <label>
+                            <input type="checkbox" id="seatReservation" name="seatReservation" value="50">
+                            Reserve Specific Seat (+EGP 50)
+                        </label>
+                        
+                        <label>
+                            <input type="checkbox" id="parking" name="parking" value="100">
+                            Parking Space (+EGP 100)
+                        </label>
+                        
+                         
+                         <label>
+                         <input type="checkbox" name="shuttleBus" value="40">
+                         Shuttle Bus Service (+EGP 40)
+                         </label>
+
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Discounts</legend>
+                        
+                        <label for="groupSize">
+                            Number in Group:
+                            <input type="number" id="groupSize" name="groupSize" min="1" max="20" value="1">
+                        </label>
+                        
+                        <label for="promoCode">
+                            Discount Code:
+                            <select id="promoCode" name="promoCode">
+                                <option value="0">No Discount</option>
+                                <option value="0.10">SAVE10 (10% off)</option>
+                                <option value="0.15">STUDENT15 (15% off)</option>
+                                <option value="0.05">WEEKEND5 (5% off)</option>
+                            </select>
+                        </label>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Payment Method</legend>
+                        
+                        <label>
+                            <input type="radio" name="payment" value="0" checked>
+                            Credit/Debit Card (No extra fee)
+                        </label>
+                        
+                        <label>
+                            <input type="radio" name="payment" value="0.02">
+                            Vodafone Cash (+2% fee)
+                        </label>
+                        
+                        <label>
+                            <input type="radio" name="payment" value="0">
+                            Apple Pay (No fee)
+                        </label>
+                    </fieldset>
+
+                    <button type="button" id="calculateBtn">Calculate Total</button>
+                    <button type="reset" id="resetBtn">Clear Form</button>
+                </form>
+            </section>
+
+            <section>
+                <h3>Calculation Details</h3>
+                <dl>
+                    <dt>Ticket Price Each:</dt>
+                    <dd id="basePrice">EGP 0.00</dd>
+                    
+                    <dt>Number of Tickets:</dt>
+                    <dd id="ticketQuantity">0</dd>
+                    
+                    <dt>Tickets Total:</dt>
+                    <dd id="ticketSubtotal">EGP 0.00</dd>
+                    
+                    <dt>Extra Services:</dt>
+                    <dd id="servicesTotal">EGP 0.00</dd>
+                    
+                    <dt>Group Discount:</dt>
+                    <dd id="groupDiscount">EGP 0.00</dd>
+                    
+                    <dt>Code Discount:</dt>
+                    <dd id="promoDiscount">EGP 0.00</dd>
+                    
+                    <dt>Payment Fee:</dt>
+                    <dd id="paymentAdjustment">EGP 0.00</dd>
+                    
+                    <dt>Tax (14%):</dt>
+                    <dd id="taxAmount">EGP 0.00</dd>
+                    
+                    <dt>Service Fee:</dt>
+                    <dd id="processingFee">EGP 15</dd>
+                    
+                    <dt>Final Total:</dt>
+                    <dd id="finalTotal"><strong>EGP 0.00</strong></dd>
+                </dl>
+            </section>
+
+            <section>
+                <h3>Order Summary</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Description</th>
+                            <th>Qty</th>
+                            <th>Price</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td id="itemName">Standard Ticket</td>
+                            <td id="summaryQuantity">0</td>
+                            <td id="unitPrice">EGP 0.00</td>
+                            <td id="itemTotal">EGP 0.00</td>
+                        </tr>
+                        <tr>
+                            <td>Additional Services</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td id="summaryServices">EGP 0.00</td>
+                        </tr>
+                        <tr>
+                            <td>Taxes & Fees</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td id="summaryFees">EGP 0.00</td>
+                        </tr>
+                        <tr>
+                            <th>Order Total</th>
+                            <th colspan="3" id="grandTotal">EGP 0.00</th>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section>
+                <h3>Next Steps</h3>
+                <button type="button" id="proceedToPaymentBtn">Proceed Payment</button>
+                <button type="button">Save for Later</button>
+            </section>
+
+            <aside>
+                <h4>Important Information:</h4>
+                <ul>
+                    <li>All prices in Egyptian Pounds (EGP)</li>
+                    <li>Egypt VAT tax: 14%</li>
+                    <li>Service fee: EGP 15 per order</li>
+                    <li>Group discount: 5% for 5+ people</li>
+                    <li>Refunds available 48 hours before event</li>
+                </ul>
+            </aside>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 EventsX. All rights reserved.</p>
+        <p>Last Updated: January 1, 2026</p>
+
+
+    </footer>
+
+    <!-- Payment Success Modal -->
+    <div id="paymentModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Payment Successful</h2>
+            <p>Thank you for your payment!</p>
+            <a href="../index.html" class="back-home-btn">Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>

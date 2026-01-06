@@ -1,0 +1,163 @@
+/*
+ID & Name: [Thraa Hegazy 223104493 Kenzy Khaled 223103471 Habiba Wael 223104207 Dareen Ahmed 223104206]
+Course: CSE211 Web Programming
+Assignment: Course Project
+Date: [6-1-2-2026]
+ID & Name: [Thraa Hegazy 223104493 Kenzy Khaled 223103471 Habiba Wael 223104207 Dareen Ahmed 223104206]
+*/
+
+/* ========== REGISTRATION PAGE STYLES ========== */
+#registration-form {
+    max-width: 600px;
+    margin: 0 auto 50px;
+    background-color: var(--accent-purple);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+#registration-form fieldset {
+    border: 2px solid var(--light-gray);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+#registration-form legend {
+    font-weight: 600;
+    color: var(--primary-color);
+    padding: 0 10px;
+    font-size: 1.1rem;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--dark-color);
+}
+
+.form-label .required {
+    color: var(--primary-color);
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--light-gray);
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #2f3542;
+    background-color: var(--white-color);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(255, 71, 87, 0.1);
+    outline: none;
+}
+
+.form-input::placeholder {
+    color: var(--medium-gray);
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+    cursor: pointer;
+    accent-color: var(--primary-color);
+}
+
+.checkbox-group label {
+    font-weight: 400;
+    cursor: pointer;
+    line-height: 1.5;
+}
+
+.checkbox-group a {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+.checkbox-group a:hover {
+    color: var(--primary-dark);
+}
+
+.submit-button {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.submit-button:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+.submit-button:active {
+    transform: translateY(0);
+}
+
+.form-footer {
+    text-align: center;
+    margin-top: 10px;
+    color: var(--gray-color);
+}
+
+.form-footer a {
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.form-footer a:hover {
+    text-decoration: underline;
+}
+
+/* ========== RESPONSIVE STYLES ========== */
+@media (max-width: 768px) {
+    #registration-form {
+        padding: 20px;
+        margin: 0 15px 50px;
+    }
+    
+    .page-title h1 {
+        font-size: 1.8rem;
+    }
+    
+    .page-title p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #registration-form {
+        padding: 15px;
+    }
+    
+    #registration-form fieldset {
+        padding: 15px;
+    }
+    
+    .form-input {
+        padding: 10px 12px;
+    }
+}
+

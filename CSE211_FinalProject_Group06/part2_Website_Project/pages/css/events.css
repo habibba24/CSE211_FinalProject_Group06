@@ -1,0 +1,592 @@
+/*
+ID & Name: [Thraa Hegazy 223104493 Kenzy Khaled 223103471 Habiba Wael 223104207 Dareen Ahmed 223104206]
+Course: CSE211 Web Programming
+Assignment: Course Project
+Date: [6-1-2-2026]
+Description: event Page - Matching Home Page Style
+*/
+
+/* === CSS Variables === */
+:root {
+    /* Tickets Marche Inspired Colors */
+    --primary-bg: #0a0a14;
+    --secondary-bg: #1a1a2e;
+    --card-bg: #2d2d44;
+    --accent-purple: #8a2be2;
+    --accent-blue: #4169e1;
+    --accent-pink: #ff1493;
+    --text-primary: #ffffff;
+    --text-secondary: #b0b0d0;
+    --text-muted: #8888aa;
+    --border-color: #3a3a5e;
+    --success: #00d4aa;
+    --warning: #ffaa00;
+    --error: #ff5555;
+    
+    /* Spacing */
+    --space-xs: 0.5rem;
+    --space-sm: 0.875rem;
+    --space-md: 1.25rem;
+    --space-lg: 1.75rem;
+    --space-xl: 2.5rem;
+    
+    /* Border Radius */
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
+    --shadow-glow: 0 0 20px rgba(138, 43, 226, 0.4);
+    
+    /* Transitions */
+    --transition-fast: 150ms ease;
+    --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* === Reset & Base Styles === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 100%);
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* === Header Styles === */
+body > header {
+    background: linear-gradient(90deg, var(--accent-purple), var(--accent-blue));
+    padding: var(--space-lg);
+    text-align: center;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    overflow: hidden;
+}
+
+body > header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+body > header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    position: relative;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* === Navigation === */
+nav[aria-label="breadcrumb"] {
+    background: rgba(255, 255, 255, 0.05);
+    padding: var(--space-md);
+    margin: var(--space-md) auto;
+    max-width: 1200px;
+    border-radius: var(--radius-md);
+    backdrop-filter: blur(10px);
+}
+
+nav[aria-label="breadcrumb"] a {
+    color: var(--accent-purple);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition-normal);
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-sm);
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+nav[aria-label="breadcrumb"] a:hover {
+    background: rgba(138, 43, 226, 0.2);
+    color: white;
+}
+nav[aria-label="breadcrumb"] a::before {
+    content: "🏠";
+    font-size: 0.9em;
+}
+
+nav[aria-label="breadcrumb"] a:last-child::before {
+    content: "📞";
+}
+
+nav:not([aria-label]) {
+    background: rgba(42, 42, 66, 0.95);
+    backdrop-filter: blur(15px);
+    padding: var(--space-md) 0;
+    margin: var(--space-md) auto;
+    max-width: 1200px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border-color);
+}
+
+nav:not([aria-label]) ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    padding: 0 var(--space-md);
+}
+
+nav:not([aria-label]) ul li a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-md);
+    transition: var(--transition-normal);
+    border: 2px solid transparent;
+}
+
+nav:not([aria-label]) ul li a:hover {
+    background: rgba(138, 43, 226, 0.2);
+    color: white;
+    transform: translateY(-2px);
+    border-color: var(--accent-purple);
+}
+
+/* === Main Content === */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--space-xl);
+}
+
+main > center {
+    display: block;
+    text-align: center;
+    margin-bottom: var(--space-xl);
+}
+
+main > center h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: var(--space-sm);
+    background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+main > center p {
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    margin-top: var(--space-lg);
+}
+
+/* === Table Styling === */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: var(--space-lg) auto;
+    background: var(--card-bg);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border-color);
+}
+
+thead {
+    background: linear-gradient(90deg, var(--accent-purple), var(--accent-blue));
+}
+
+thead th {
+    padding: var(--space-md);
+    text-align: left;
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    position: relative;
+}
+
+thead th:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 25%;
+    height: 50%;
+    width: 1px;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+tbody tr {
+    transition: var(--transition-normal);
+}
+
+tbody tr:hover {
+    background: rgba(138, 43, 226, 0.1);
+}
+
+tbody td {
+    padding: var(--space-md);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    color: var(--text-primary);
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+tbody td:first-child {
+    font-weight: 600;
+    color: var(--accent-purple);
+}
+
+tbody td:nth-child(4) {
+    color: var(--success);
+    font-weight: 600;
+}
+
+tbody td:nth-child(5) {
+    color: var(--accent-blue);
+    font-weight: 600;
+}
+
+tbody td a {
+    color: var(--accent-purple);
+    text-decoration: none;
+    font-weight: 500;
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-sm);
+    background: rgba(138, 43, 226, 0.1);
+    transition: var(--transition-normal);
+    display: inline-block;
+}
+
+tbody td a:hover {
+    background: rgba(138, 43, 226, 0.2);
+    color: white;
+    transform: translateY(-2px);
+}
+
+tbody td a[href*="Budget_Calculator.html"] {
+    background: rgba(0, 212, 170, 0.1);
+    color: var(--success);
+}
+
+tbody td a[href*="Budget_Calculator.html"]:hover {
+    background: rgba(0, 212, 170, 0.2);
+    color: white;
+}
+
+/* === Event Details Sections === */
+main > center > div {
+    width: 90%;
+    text-align: left;
+    margin: 0 auto;
+}
+
+main > center > div > h2 {
+    color: var(--accent-purple);
+    font-size: 2rem;
+    margin-bottom: var(--space-lg);
+    text-align: center;
+}
+
+/* Event Details Card */
+div[id$="-details"] {
+    background: var(--card-bg);
+    border-radius: var(--radius-xl);
+    padding: var(--space-xl);
+    box-shadow: var(--shadow-lg);
+    border: 2px solid var(--border-color);
+    margin: var(--space-lg) 0;
+    transition: var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+}
+
+div[id$="-details"]::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent-purple), var(--accent-blue));
+}
+
+div[id$="-details"]:hover {
+    border-color: var(--accent-purple);
+    box-shadow: var(--shadow-glow);
+    transform: translateY(-5px);
+}
+
+div[id$="-details"] h3 {
+    font-size: 1.8rem;
+    margin-bottom: var(--space-lg);
+    color: var(--text-primary);
+}
+
+div[id$="-details"] p {
+    color: var(--text-secondary);
+    margin-bottom: var(--space-sm);
+    line-height: 1.6;
+}
+
+div[id$="-details"] p strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+/* Image and Video Styling */
+div[id$="-details"] > div {
+    margin: var(--space-lg) 0;
+}
+
+div[id$="-details"] h4 {
+    color: var(--accent-blue);
+    font-size: 1.3rem;
+    margin-bottom: var(--space-md);
+}
+
+div[id$="-details"] img {
+    width: 100%;
+    max-width: 600px;
+    border-radius: var(--radius-lg);
+    border: 2px solid var(--border-color);
+    box-shadow: var(--shadow-md);
+    display: block;
+    margin: 0 auto;
+}
+
+div[id$="-details"] video {
+    width: 100%;
+    max-width: 600px;
+    border-radius: var(--radius-lg);
+    border: 2px solid var(--border-color);
+    box-shadow: var(--shadow-md);
+    display: block;
+    margin: 0 auto;
+    background: #000;
+}
+
+div[id$="-details"] em {
+    color: var(--text-muted);
+    font-style: italic;
+    font-size: 0.9rem;
+    display: block;
+    text-align: center;
+    margin-top: var(--space-xs);
+}
+
+/* Ticket Table in Details */
+div[id$="-details"] table {
+    width: 100%;
+    max-width: 600px;
+    margin: var(--space-md) auto;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+div[id$="-details"] th {
+    background: rgba(138, 43, 226, 0.2);
+    padding: var(--space-md);
+    text-align: left;
+    color: var(--accent-purple);
+    font-weight: 600;
+}
+
+div[id$="-details"] td {
+    padding: var(--space-md);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    color: var(--text-primary);
+}
+
+/* Action Buttons */
+div[id$="-details"] > div:last-child {
+    margin-top: var(--space-xl);
+    text-align: center;
+}
+
+div[id$="-details"] a {
+    padding: var(--space-md) var(--space-lg);
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition-normal);
+    display: inline-block;
+    margin: 0 var(--space-sm);
+}
+
+div[id$="-details"] a[href*="Budget_Calculator.html"] {
+    background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
+    color: white;
+    box-shadow: var(--shadow-glow);
+}
+
+div[id$="-details"] a[href*="Budget_Calculator.html"]:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(138, 43, 226, 0.5);
+}
+
+div[id$="-details"] a[href="#events"] {
+    background: transparent;
+    color: var(--accent-blue);
+    border: 2px solid var(--accent-blue);
+}
+
+div[id$="-details"] a[href="#events"]:hover {
+    background: rgba(65, 105, 225, 0.1);
+    transform: translateY(-3px);
+}
+
+/* === Footer === */
+footer {
+    background: var(--secondary-bg);
+    color: var(--text-secondary);
+    text-align: center;
+    padding: var(--space-xl);
+    margin-top: var(--space-xl);
+    border-top: 1px solid var(--border-color);
+}
+
+footer p {
+    margin-bottom: var(--space-xs);
+}
+
+footer p:first-child {
+    color: var(--accent-purple);
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+footer p:last-child {
+    color: var(--text-muted);
+    font-style: italic;
+    font-size: 0.9rem;
+}
+
+/* === Responsive Design === */
+@media (max-width: 768px) {
+    body > header h1 {
+        font-size: 2rem;
+    }
+    
+    nav:not([aria-label]) ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    nav:not([aria-label]) ul li {
+        width: 100%;
+        text-align: center;
+    }
+    
+    nav:not([aria-label]) ul li a {
+        width: 90%;
+        justify-content: center;
+    }
+    
+    main {
+        padding: var(--space-md);
+    }
+    
+    main > center h1 {
+        font-size: 2rem;
+    }
+    
+    table {
+        display: block;
+        overflow-x: auto;
+    }
+    
+    div[id$="-details"] {
+        padding: var(--space-lg);
+    }
+    
+    div[id$="-details"] > div:last-child {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-sm);
+    }
+    
+    div[id$="-details"] a {
+        width: 100%;
+        text-align: center;
+        margin: var(--space-xs) 0;
+    }
+}
+
+@media (max-width: 480px) {
+    body > header h1 {
+        font-size: 1.7rem;
+    }
+    
+    main > center h1 {
+        font-size: 1.7rem;
+    }
+    
+    div[id$="-details"] h3 {
+        font-size: 1.5rem;
+    }
+    
+    table {
+        font-size: 0.9rem;
+    }
+    
+    th, td {
+        padding: var(--space-sm);
+    }
+}
+
+/* === Print Styles === */
+@media print {
+    body > header {
+        background: none;
+        color: black;
+    }
+    
+    nav[aria-label="breadcrumb"],
+    nav:not([aria-label]) {
+        display: none;
+    }
+    
+    div[id$="-details"] {
+        box-shadow: none;
+        border: 1px solid #ccc;
+    }
+    
+    body {
+        background: white;
+        color: black;
+    }
+    
+    a {
+        color: black;
+        text-decoration: underline;
+    }
+}
+
+/* === Focus States for Accessibility === */
+:focus-visible {
+    outline: 2px solid var(--accent-purple);
+    outline-offset: 2px;
+}
+
+/* Omar Khairat specific styling - left align content */
+#omar-khairat-details {
+    text-align: left;
+}

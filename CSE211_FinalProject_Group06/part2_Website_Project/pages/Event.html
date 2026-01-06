@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="EventsX - Browse all upcoming events, concerts, and shows">
+    <meta name="keywords" content="events, concerts, shows, sports, tickets, booking">
+    <meta name="author" content="EventsX Team">
+    <title>EventsX - Upcoming Events</title>
+
+    <link rel="stylesheet" href="css/Budget_calculator.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/events.css">
+    <link rel="stylesheet" href ="css/event_details.css">
+
+    <script src="scripts/main.js" defer></script>
+    
+
+    <style>
+        /* Modern CSS for tables instead of obsolete attributes */
+        table.events-table {
+            border:1px solid #ddd;
+            width: 100%;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+        table.events-table th,
+        table.events-table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        table.ticket-table {
+            border: 1px solid #ddd;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+        table.ticket-table th,
+        table.ticket-table td {
+            padding: 8px;
+            border: 1px solid #ddd;
+        }
+        img {
+            border: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Main Header -->
+    <header>
+        <h1>EventsX - Event Planner</h1>
+    </header>
+
+    <!-- Centered Navigation Section -->
+    <div style="text-align: center;">
+        <!-- Breadcrumb Navigation -->
+        <nav aria-label="breadcrumb">
+            <a href="../index.html">Home</a> > 
+            <a href="#events">Events</a>
+        </nav>
+
+        <!-- Main Navigation Bar -->
+        <nav>
+            <ul>
+                <li><a href="../pages/About.html">About Us</a></li>
+                <li><a href="../pages/Contact.html">Contact Us</a></li>
+                <li><a href="../pages/Registration.html">Registration</a></li>
+                <li><a href="../pages/Event.html">Events</a></li>
+                <li><a href="../pages/Planning.html">Plan Event</a></li>
+                <li><a href="../pages/Budget_Calculator.html">Budget Calculator</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Search Bar -->
+    <div id="search-box">
+        <input type="text" id="search-input" placeholder="Search for events, concerts, or artists...">
+        <button id="search-button">Search</button>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <div style="text-align: center;">
+            <h1 id="events">Upcoming Events</h1>
+            <p>Discover the best upcoming events and activities</p>
+            
+            <br><br>
+            
+            <!-- Events Table -->
+            <table class="events-table">
+                <thead>
+                    <tr>
+                        <th>Event Name</th>
+                        <th>Date</th>
+                        <th>Location</th>
+                        <th>Cost</th>
+                        <th>Type</th>
+                        <th>Details</th>
+                        <th>Book</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Amr Diab Event -->
+                    <tr id="amr-diab-row">
+                        <td>Amr Diab Concert</td>
+                        <td>4 January 2026</td>
+                        <td>Elmanara Arena, Cairo</td>
+                        <td>500 - 2000 EGP</td>
+                        <td>Music</td>
+                        <td><a href="#amr-diab-details">View Details</a></td>
+                        <td><a href="Budget_Calculator.html">Book Now</a></td>
+                    </tr>
+                    
+                    <!-- Al Ahly vs Zamalek Event -->
+                    <tr id="ahly-zamalek-row">
+                        <td>Al Ahly vs Zamalek Match</td>
+                        <td>20 January 2026</td>
+                        <td>Cairo International Stadium</td>
+                        <td>300 - 1500 EGP</td>
+                        <td>Sports Events</td>
+                        <td><a href="#ahly-zamalek-details">View Details</a></td>
+                        <td><a href="Budget_Calculator.html">Book Now</a></td>
+                    </tr>
+                    
+                    <!-- Elissa Event -->
+                    <tr id="elissa-row">
+                        <td>Elissa Concert</td>
+                        <td>25 February 2026</td>
+                        <td>Pyramids of Giza</td>
+                        <td>2000 - 6000 EGP</td>
+                        <td>Music</td>
+                        <td><a href="#elissa-details">View Details</a></td>
+                        <td><a href="Budget_Calculator.html">Book Now</a></td>
+                    </tr>
+                    
+                    <!-- Cairokee Event -->
+                    <tr id="cairokee-row">
+                        <td>Cairokee Concert</td>
+                        <td>30 March 2026</td>
+                        <td>Elmanara Arena, Cairo</td>
+                        <td>400 - 1200 EGP</td>
+                        <td>Music</td>
+                        <td><a href="#cairokee-details">View Details</a></td>
+                        <td><a href="Budget_Calculator.html">Book Now</a></td>
+                    </tr>
+                    
+                    <!-- Omar Khairat Event -->
+                    <tr id="omar-khairat-row">
+                        <td>Omar Khairat Concert</td>
+                        <td>5 April 2026</td>
+                        <td>The Cairo Opera House</td>
+                        <td>800 - 3000 EGP</td>
+                        <td>Music</td>
+                        <td><a href="#omar-khairat-details">View Details</a></td>
+                        <td><a href="Budget_Calculator.html">Book Now</a></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <br><br>
+            
+            <!-- Event Details Section -->
+            <div>
+                <h2>Event Details</h2>
+                
+                <!-- Amr Diab Details -->
+                <div id="amr-diab-details">
+                    <h3>Amr Diab Concert - Full Details</h3>
+                    <p><strong>Date:</strong> 4 January 2026</p>
+                    <p><strong>Time:</strong> 9:00 PM</p>
+                    <p><strong>Location:</strong> Elmanara Arena, Cairo</p>
+                    <p><strong>Ticket Price Range:</strong> 500 EGP - 2000 EGP</p>
+                    <p><strong>Event Type:</strong> Music Concert</p>
+                    <p><strong>Duration:</strong> 3 Hours</p>
+                    <p><strong>Description:</strong> Experience an unforgettable night with the legend of Arabic music, Amr Diab, performing his greatest hits in an exclusive concert at Elmanara Arena.</p>
+                    
+                    <!-- Event Image -->
+                    <div>
+                        <h4>Event Image:</h4>
+                        <img src="image/Amr_Diab_Event.png" alt="Amr Diab Concert">
+                    </div>
+                    
+                    <!-- Ticket Categories -->
+                    <h4>Ticket Categories:</h4>
+                    <table class="ticket-table">
+                        <tr>
+                            <th>Category</th>
+                            <th>Price</th>
+                            <th>Benefits</th>
+                        </tr>
+                        <tr>
+                            <td>General</td>
+                            <td>500 EGP</td>
+                            <td>Basic seating</td>
+                        </tr>
+                        <tr>
+                            <td>VIP</td>
+                            <td>1200 EGP</td>
+                            <td>Premium seating + Drink</td>
+                        </tr>
+                        <tr>
+                            <td>VVIP</td>
+                            <td>2000 EGP</td>
+                            <td>Front row + Backstage access</td>
+                        </tr>
+                    </table>
+                    
+                    <!-- Action Buttons -->
+                    <div>
+                        <a href="Budget_Calculator.html" class="book-tickets-btn" data-event-type="concert" data-event-date="4 January 2026">
+                            Book Tickets
+                        </a>
+                        <a href="#events">
+                            Back to Events List
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Al Ahly vs Zamalek Details -->
+                <div id="ahly-zamalek-details">
+                    <h3>Al Ahly vs Zamalek Match - Full Details</h3>
+                    <p><strong>Date:</strong> 20 January 2026</p>
+                    <p><strong>Time:</strong> 8:00 PM</p>
+                    <p><strong>Location:</strong> Cairo International Stadium</p>
+                    <p><strong>Ticket Price Range:</strong> 300 EGP - 1500 EGP</p>
+                    <p><strong>Event Type:</strong> Sports Match</p>
+                    <p><strong>Duration:</strong> 2 Hours</p>
+                    <p><strong>Description:</strong> The biggest football derby in Egypt! Watch Al Ahly vs Zamalek in a thrilling match at Cairo International Stadium.</p>
+                    
+                    <!-- Event Image -->
+                    <div>
+                        <h4>Event Image:</h4>
+                        <img src="image/Al-Ahly_Event.jpg" alt="Al Ahly vs Zamalek Match">
+                    </div>
+                    
+                    <!-- Ticket Categories -->
+                    <h4>Ticket Categories:</h4>
+                    <table class="ticket-table">
+                        <tr>
+                            <th>Category</th>
+                            <th>Price</th>
+                            <th>Benefits</th>
+                        </tr>
+                        <tr>
+                            <td>General</td>
+                            <td>300 EGP</td>
+                            <td>Upper stands</td>
+                        </tr>
+                        <tr>
+                            <td>Premium</td>
+                            <td>800 EGP</td>
+                            <td>Middle stands</td>
+                        </tr>
+                        <tr>
+                            <td>VIP</td>
+                            <td>1500 EGP</td>
+                            <td>Lower stands + VIP area</td>
+                        </tr>
+                    </table>
+                    
+                    <!-- Action Buttons -->
+                    <div>
+                        <a href="Budget_Calculator.html" class="book-tickets-btn" data-event-type="sports" data-event-date="20 January 2026">
+                            Book Tickets
+                        </a>
+                        <a href="#events">
+                            Back to Events List
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Elissa Details -->
+                <div id="elissa-details">
+                    <h3>Elissa Concert - Full Details</h3>
+                    <p><strong>Date:</strong> 25 February 2026</p>
+                    <p><strong>Time:</strong> 10:00 PM</p>
+                    <p><strong>Location:</strong> Pyramids of Giza</p>
+                    <p><strong>Ticket Price Range:</strong> 2000 EGP - 6000 EGP</p>
+                    <p><strong>Event Type:</strong> Music Concert</p>
+                    <p><strong>Duration:</strong> 2.5 Hours</p>
+                    <p><strong>Description:</strong> A magical night with the queen of Arabic pop, Elissa, performing under the stars at the historic Pyramids of Giza.</p>
+                    
+                    <!-- Event Image -->
+                    <div>
+                        <h4>Event Image:</h4>
+                        <img src="image/Elissa_Event.webp" alt="Elissa Concert">
+                    </div>
+                    
+                    <!-- Ticket Categories -->
+                    <h4>Ticket Categories:</h4>
+                    <table class="ticket-table">
+                        <tr>
+                            <th>Category</th>
+                            <th>Price</th>
+                            <th>Benefits</th>
+                        </tr>
+                        <tr>
+                            <td>General</td>
+                            <td>2000 EGP</td>
+                            <td>Open area seating</td>
+                        </tr>
+                        <tr>
+                            <td>Premium</td>
+                            <td>3500 EGP</td>
+                            <td>Assigned seating</td>
+                        </tr>
+                        <tr>
+                            <td>VIP</td>
+                            <td>6000 EGP</td>
+                            <td>Front row + Dinner</td>
+                        </tr>
+                    </table>
+                    
+                    <!-- Action Buttons -->
+                    <div>
+                        <a href="Budget_Calculator.html" class="book-tickets-btn" data-event-type="concert" data-event-date="25 February 2026">
+                            Book Tickets
+                        </a>
+                        <a href="#events">
+                            Back to Events List
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Cairokee Details -->
+                <div id="cairokee-details">
+                    <h3>Cairokee Concert - Full Details</h3>
+                    <p><strong>Date:</strong> 30 March 2026</p>
+                    <p><strong>Time:</strong> 7:00 PM</p>
+                    <p><strong>Location:</strong> Elmanara Arena, Cairo</p>
+                    <p><strong>Ticket Price Range:</strong> 400 EGP - 1200 EGP</p>
+                    <p><strong>Event Type:</strong> Music Concert</p>
+                    <p><strong>Duration:</strong> 2.5 Hours</p>
+                    <p><strong>Description:</strong> Celebrate 15 years of Cairokee with their greatest hits and new releases in a special anniversary concert.</p>
+                    
+                    <!-- Event Image -->
+                    <div>
+                        <h4>Event Image:</h4>
+                        <img src="image/Cairokee_Event.jpeg" alt="Cairokee Concert">
+                        <p><em>Image: Live band performance</em></p>
+                    </div>
+                    
+                    <!-- Ticket Categories -->
+                    <h4>Ticket Categories:</h4>
+                    <table class="ticket-table">
+                        <tr>
+                            <th>Category</th>
+                            <th>Price</th>
+                            <th>Benefits</th>
+                        </tr>
+                        <tr>
+                            <td>General</td>
+                            <td>400 EGP</td>
+                            <td>Standing area</td>
+                        </tr>
+                        <tr>
+                            <td>Seated</td>
+                            <td>700 EGP</td>
+                            <td>Assigned seat</td>
+                        </tr>
+                        <tr>
+                            <td>VIP</td>
+                            <td>1200 EGP</td>
+                            <td>Front area + Merchandise</td>
+                        </tr>
+                    </table>
+                    
+                    <!-- Action Buttons -->
+                    <div>
+                        <a href="Budget_Calculator.html" class="book-tickets-btn" data-event-type="concert" data-event-date="30 March 2026">
+                            Book Tickets
+                        </a>
+                        <a href="#events">
+                            Back to Events List
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Omar Khairat Details -->
+                <div id="omar-khairat-details">
+                    <h3>Omar Khairat Concert - Full Details</h3>
+                    <p><strong>Date:</strong> 5 April 2026</p>
+                    <p><strong>Time:</strong> 8:30 PM</p>
+                    <p><strong>Location:</strong> The Cairo Opera House</p>
+                    <p><strong>Ticket Price Range:</strong> 800 EGP - 3000 EGP</p>
+                    <p><strong>Event Type:</strong> Classical Music Concert</p>
+                    <p><strong>Duration:</strong> 2 Hours</p>
+                    <p><strong>Description:</strong> An enchanting evening with maestro Omar Khairat and the Cairo Symphony Orchestra at the prestigious Cairo Opera House.</p>
+                    
+                    <!-- Event Image -->
+                    <div>
+                        <h4>Event Image:</h4>
+                        <img src="image/Omar_Event.jpg" alt="Omar Khairat Concert">
+                    </div>
+                    
+                    <!-- Ticket Categories -->
+                    <h4>Ticket Categories:</h4>
+                    <table class="ticket-table">
+                        <tr>
+                            <th>Category</th>
+                            <th>Price</th>
+                            <th>Benefits</th>
+                        </tr>
+                        <tr>
+                            <td>Balcony</td>
+                            <td>800 EGP</td>
+                            <td>Upper level</td>
+                        </tr>
+                        <tr>
+                            <td>Orchestra</td>
+                            <td>1800 EGP</td>
+                            <td>Main level seating</td>
+                        </tr>
+                        <tr>
+                            <td>Box</td>
+                            <td>3000 EGP</td>
+                            <td>Private box + Reception</td>
+                        </tr>
+                    </table>
+                    
+                    <!-- Action Buttons -->
+                    <div>
+                        <a href="Budget_Calculator.html" class="book-tickets-btn" data-event-type="concert" data-event-date="5 April 2026">
+                            Book Tickets
+                        </a>
+                        <a href="#events">
+                            Back to Events List
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 EventsX. All rights reserved.</p>
+        <p>Last Updated: January 1, 2026</p>
+    </footer>
+</body>
+</html>
+

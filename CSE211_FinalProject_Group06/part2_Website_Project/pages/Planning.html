@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="EventsX - Plan Your Event">
+    <meta name="keywords" content="events, planning, booking, venues">
+    <meta name="author" content="EventsX Team">
+    <title>Event Planning - EventsX</title>
+
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="css/index_about.css">
+
+    <script src="scripts/main.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <h1>Eventx-Event Planning</h1>
+    </header>
+
+    <nav aria-label="breadcrumb">
+        <a href="../index.html">Home</a>><a href="Planning.html">Plan event</a>
+    </nav>
+    <hr class="page-divider">
+
+    <nav>
+        <ul>
+            <li><a href="../pages/About.html">About Us</a></li>
+            <li><a href="../pages/Contact.html">Contact Us</a></li>
+            <li><a href="../pages/Registration.html">Registration</a></li>
+            <li><a href="../pages/Event.html">Events</a></li>
+            <li><a href="../pages/Planning.html">Plan Event</a></li>
+            <li><a href="../pages/Budget_Calculator.html">Budget Calculator</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="page-title">
+            <h2 style="color: white;">Plan Your Event</h2>
+            <p>Request to add a new event to our platform</p>
+        </section>
+
+        <section class="planning-form-section">
+            <div class="planning-container">
+                <h2>Event Request Form</h2>
+                <form id="eventPlanningForm">
+                    <fieldset>
+                        <legend>Event Details</legend>
+
+                        <label for="eventName">
+                            Event Name:
+                            <input type="text" id="eventName" name="eventName" required>
+                        </label>
+
+                        <label for="eventType">
+                            Event Type:
+                            <select id="eventType" name="eventType" required>
+                                <option value="" selected disabled>-- Select Event Type --</option>
+                                <option value="concert">Concert</option>
+                                <option value="conference">Conference</option>
+                                <option value="workshop">Workshop</option>
+                                <option value="festival">Festival</option>
+                                <option value="sports">Sports Event</option>
+                                <option value="theater">Theater</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </label>
+
+                        <label for="eventDate">
+                            Preferred Date:
+                            <input type="date" id="eventDate" name="eventDate" required>
+                        </label>
+
+                        <label for="expectedAttendees">
+                            Expected Number of Attendees:
+                            <input type="number" id="expectedAttendees" name="expectedAttendees" min="10" max="10000" required>
+                        </label>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Venue Selection</legend>
+
+                        <p>Choose from our available venues:</p>
+                        <div class="venue-options">
+                            <label class="venue-option">
+                                <input type="radio" name="venue" value="Cairo International Stadium" required>
+                                <span>Cairo International Stadium</span>
+                            </label>
+                            <label class="venue-option">
+                                <input type="radio" name="venue" value="Egyptian Opera House">
+                                <span>Egyptian Opera House</span>
+                            </label>
+                            <label class="venue-option">
+                                <input type="radio" name="venue" value="Nile Ritz-Carlton">
+                                <span>Nile Ritz-Carlton Ballroom</span>
+                            </label>
+                            <label class="venue-option">
+                                <input type="radio" name="venue" value="Cairo Festival City">
+                                <span>Cairo Festival City Hall</span>
+                            </label>
+                            <label class="venue-option">
+                                <input type="radio" name="venue" value="Zamalek Ballroom">
+                                <span>Zamalek Ballroom</span>
+                            </label>
+                            <label class="venue-option">
+                                <input type="radio" name="venue" value="other">
+                                <span>Other (specify below)</span>
+                            </label>
+                        </div>
+
+                        <label for="customVenue" id="customVenueLabel" style="display: none;">
+                            Specify Your Preferred Venue:
+                            <input type="text" id="customVenue" name="customVenue" placeholder="Enter venue name and location">
+                        </label>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Contact Information</legend>
+
+                        <label for="requesterName">
+                            Your Name:
+                            <input type="text" id="requesterName" name="requesterName" required>
+                        </label>
+
+                        <label for="requesterEmail">
+                            Email Address:
+                            <input type="email" id="requesterEmail" name="requesterEmail" required>
+                        </label>
+
+                        <label for="requesterPhone">
+                            Phone Number:
+                            <input type="tel" id="requesterPhone" name="requesterPhone" required>
+                        </label>
+                    </fieldset>
+
+                    <button type="submit" class="submit-planning-btn">Submit Event Request</button>
+                </form>
+                
+            </div>
+            
+        </section>
+    </main>
+    <!-- Success Modal -->
+    <div id="planningSuccessModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Request Submitted Successfully!</h2>
+            <p>Thank you for your event planning request. We will review your submission and contact you at <span id="contactEmail"></span> within 24-48 hours with more details about availability and next steps.</p>
+            <button type="button" onclick="window.location.href='../index.html'">Back to Home</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 EventsX. All rights reserved.</p>
+        <p>Last Updated: January 1, 2026</p>
+    </footer>
+
+</body>
+</html>
